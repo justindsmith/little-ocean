@@ -1,0 +1,10 @@
+<header>
+  <a href="/" id="logo-and-title">
+    {{ $logoUrl := index .Site.Params "logoUrl" }}
+    <div class="site-logo">
+      {{ if $logoUrl }} <img class="site-logo" src="{{ $logoUrl }}" />{{ end }}
+    </div>
+    <div class="site-title">{{.Site.Title}}</div>
+  </a>
+  {{- partial "search-form.html" . -}}
+</header>

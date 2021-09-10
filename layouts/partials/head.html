@@ -1,0 +1,54 @@
+<title>{{ .Title }}</title>
+
+<!-- META TAGS -->
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link href="/favicon.png" rel="icon" type="image/x-icon" />
+
+{{ $IndexCss := resources.Get "/css/index.scss" | resources.ToCSS (dict
+"outputStyle" "compressed") | fingerprint }}
+<link rel="stylesheet" href="{{ $IndexCss.RelPermalink }}" />
+
+<style type="text/css">
+  :root {
+    --color: {{ index $.Site.Params.styles "color" | default "#333" | safeCSS }};
+    --background-color: {{ index $.Site.Params.styles "backgroundColor" | default "#fafafa" | safeCSS }};
+    --line-height: {{ index $.Site.Params.styles "lineHeight" | default "1.4" | safeCSS }};
+    --font-family: {{ index $.Site.Params.styles "fontFamily" | default `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"` | safeCSS }};
+
+    --header-background-color: {{ index $.Site.Params.styles "headerBackgroundColor" | default "#ffffff" | safeCSS }};
+    --header-border-bottom-color: {{ index $.Site.Params.styles "headerBorderBottomColor" | default "#ccc" | safeCSS }};
+    --header-color: {{ index $.Site.Params.styles "headerColor" | default "#000000" | safeCSS }};
+
+    --page-background-color: {{ index $.Site.Params.styles "pageBackgroundColor" | default "#ffffff" | safeCSS }};
+    --page-border-left-color: {{ index $.Site.Params.styles "pageBorderLeftColor" | default "rgba(0, 0, 0, 0.05)" | safeCSS }};
+    --page-link-color: {{ index $.Site.Params.styles "pageLinkColor" | default "rgba(10, 132, 255, 1)" | safeCSS }};
+    --page-max-width: {{ index $.Site.Params.styles "pageMaxWidth" | default "625px" | safeCSS }};
+    --page-font-size: {{ index $.Site.Params.styles "pageFontSize" | default "17px" | safeCSS }};
+    --page-line-height: {{ index $.Site.Params.styles "pageLineHeight" | default "24px" | safeCSS }};
+    --page-hr-background-color: {{ index $.Site.Params.styles "pageHrBackgroundColor" | default "#dddddd" | safeCSS }};
+
+    --backlinks-background-color: {{ index $.Site.Params.styles "backlinksBackgroundColor" | default "#fafafc" | safeCSS }};
+    --backlinks-border-radius: {{ index $.Site.Params.styles "backlinksBorderRadius" | default "16px" | safeCSS }};
+    --backlink-label-color: {{ index $.Site.Params.styles "backlinkLabelColor" | default "#888888" | safeCSS }};
+    --backlink-title-color: {{ index $.Site.Params.styles "backlinkTitleColor" | default "#000000" | safeCSS }};
+    --backlink-preview-color: {{ index $.Site.Params.styles "backlinkPreviewColor" | default "rgb(102, 102, 102)" | safeCSS }};
+    --backlink-hover-background-color: {{ index $.Site.Params.styles "backlinkHoverBackgroundColor" | default "rgba(0, 0, 0, 0.05)" | safeCSS }};
+
+    --preview-width: {{ index $.Site.Params.styles "previewWidth" | default "625px" | safeCSS }};
+    --preview-max-height: {{ index $.Site.Params.styles "previewMaxHeight" | default "400px" | safeCSS }};
+    --preview-scale: {{ index $.Site.Params.styles "previewScale" | default "0.8" | safeCSS }};
+    --preview-box-shadow-top-color: {{ index $.Site.Params.styles "previewBoxShadowTopColor" | default "rgba(0, 0, 0, 0.08)" | safeCSS }};
+    --preview-box-shadow-right-color: {{ index $.Site.Params.styles "previewBoxShadowRightColor" | default "rgba(0, 0, 0, 0.04)" | safeCSS }};
+    --preview-box-shadow-bottom-color: {{ index $.Site.Params.styles "previewBoxShadowBottomColor" | default "rgba(0, 0, 0, 0.15)" | safeCSS }};
+    --preview-box-shadow-left-color: {{ index $.Site.Params.styles "previewBoxShadowLeftColor" | default "rgba(0, 0, 0, 0.04)" | safeCSS }};
+
+    --search-extract-color: {{ index $.Site.Params.styles "searchExtractColor" | default "#aaaaaa" | safeCSS }};
+  }
+</style>

@@ -1,0 +1,9 @@
+[build]
+publish = "exampleSite/public"
+command = """hugo \
+  --source exampleSite \
+  --themesDir ../.. \
+  --theme repo"""
+
+[build.environment]
+HUGO_VERSION = "0.88.0"

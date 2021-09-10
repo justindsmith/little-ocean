@@ -1,0 +1,24 @@
+{{ $re := printf `(?i)\n?.*\[%s\].*\n?` .Title }}
+{{ $backlinks := slice }}
+{{ $currentBaseFileName := $.File.BaseFileName }}
+{{ range .Site.AllPages }}
+   {{ if and (findRE $re .RawContent) (not (eq $currentBaseFileName .File.BaseFileName)) }}
+      {{ $backlinks = $backlinks | append . }}
+   {{ end }}
+{{ end }}
+
+{{ if gt (len $backlinks) 0 }}
+  <div class="bl-section">
+    <h4>Links to this note</h4>
+    <div class="backlinks">
+      {{ range $backlinks }}
+        <a href="{{ .RelPermalink }}" class="backlink-anchor">
+          <div class="backlink">
+            <p class="backlink-title">{{ .Title }}</p>
+            <p class="backlink-preview">{{ index ( findRE $re .RawContent ) 0 | plainify | markdownify | plainify}}</p>
+          </div>
+        </a>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}
