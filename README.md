@@ -4,7 +4,7 @@ A [Hugo](https://gohugo.io/) theme optimized for publishing personal [evergreen 
 
 It is forked from [Jethro Kuan's Cortex theme](https://github.com/jethrokuan/cortex), with a number of enhancements to more closely mimic [Andy Matuschak's notes site](https://notes.andymatuschak.org).
 
-Example Site: [Little Ocean Star Wars Knowledge Graph](https://wizardly-kowalevski-7eb1fc.netlify.app)
+Example Site: [Little Ocean Star Wars Knowledge Graph](https://little-ocean.netlify.app/)
 
 ![Screenshot of Little Ocean Theme for Hugo](./screenshot.png)
 
